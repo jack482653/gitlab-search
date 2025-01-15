@@ -20,6 +20,12 @@ GITLAB_URL=https://gitlab.example.com
 GITLAB_PRIVATE_TOKEN=your-private-token
 ```
 
+You can get GITLAB_PRIVATE_TOKEN at `User settings > Access Tokens` via the following steps:
+
+1. In `Active personal access tokens` panel, click `Generate access token` button.
+2. Fill in the `Name` and `Expires in` fields. In `Scopes`, select `Read API` and `Read Repository`. Then click `Generate access token`.
+3. Copy the `Personal access token` and paste it into the `.env` file.
+
 ## Usage
 
 Run the script with your search term:

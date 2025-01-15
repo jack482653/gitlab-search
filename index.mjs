@@ -30,10 +30,16 @@ for (const project of projects) {
 
   results.forEach((result) => {
     console.log(
-      JSON.stringify({
-        ...result,
-        project_name: projectNameMappings[project.id],
-      })
+      "=============================================================="
+    );
+    console.log(`Project Name: ${projectNameMappings[project.id]}`);
+    console.log(`Project ID: ${project.id}`);
+    console.log(`File path: ${result.path}`);
+    console.log(`Matched line: ${result.startline}`);
+    console.log("File content:");
+    console.log(result.data);
+    console.log(
+      "=============================================================="
     );
   });
 }

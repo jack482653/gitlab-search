@@ -15,6 +15,12 @@ const projects = await getProjects({
   sort: "asc",
 });
 
+const projectNameMappings = {};
+
+projects.forEach((project) => {
+  projectNameMappings[project.id] = project.name;
+});
+
 for (const project of projects) {
   // Don't call the API too fast
   // TODO: Use a rate limiter
@@ -22,7 +28,12 @@ for (const project of projects) {
 
   const results = await searchProject(project.id, { scope: "blobs", search });
 
-  if (results.length > 0) {
-    console.dir(results, { maxArrayLength: null });
-  }
+  results.forEach((result) => {
+    console.log(
+      JSON.stringify({
+        ...result,
+        project_name: projectNameMappings[project.id],
+      })
+    );
+  });
 }
